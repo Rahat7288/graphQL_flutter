@@ -6,7 +6,7 @@ import 'package:get/get_state_manager/src/simple/get_responsive.dart';
 
 import 'package:graphql_flutter/domain/usecases/all_films_usecases/all_films_usecases.dart';
 
-import '../../../models/all_films_model/all_films_model.dart';
+import '../../../data/models/all_films_model/all_films_model.dart';
 
 class AllFilmsController extends GetxController {
   final AllFilmsUsecases _allFilmsUsecases;
