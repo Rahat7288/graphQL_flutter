@@ -39,6 +39,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
   graphql: ^5.2.0-beta.9
+  get: ^4.6.6
 
 
 dev_dependencies:
