@@ -4,6 +4,8 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:get/route_manager.dart';
 import 'package:graphql_flutter/presentation/controllers/all_films_controller/all_films_controller.dart';
 
+import 'presentation/bindings/all_flims_binding/all_flims_binding.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialBinding: AllFlimsBinding(),
       home: const MyHomePage(title: 'GraphQL'),
     );
   }
