@@ -29,12 +29,13 @@ class AllFilmsController extends GetxController {
     try {
       await _allFilmsUsecases.call().then((val) {
         if (kDebugMode) {
-          print('getting user value========= $val');
+          print('getting user value========= ${val.data?.allFilms?.films}');
         }
         allFilmsList.value = val;
       });
     } catch (e) {
       Get.snackbar('Error', e.toString());
+      throw e.toString();
     } finally {
       loading.value = false;
     }

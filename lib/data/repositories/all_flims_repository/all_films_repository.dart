@@ -33,9 +33,9 @@ query Query {
 """;
 
     try {
-      Response response = await _graphqlService.query(query);
+      final response = await _graphqlService.query(query);
 
-      return AllFilmsModel.fromJson(response as Map<String, dynamic>);
+      return AllFilmsModel.fromJson(response);
     } catch (e) {
       throw Exception("Error fetching all Films: $e");
     }

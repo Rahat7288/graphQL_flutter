@@ -13,7 +13,8 @@ class GraphqlService {
   final String _url = AppUrls.baseUrl;
 
   /// for query through graphql============
-  Future<dynamic> query(String query, {Map<String, dynamic>? variables}) async {
+  Future<Map<String, dynamic>> query(String query,
+      {Map<String, dynamic>? variables}) async {
     final data = {
       'query': query,
       'variables': variables ?? {},
