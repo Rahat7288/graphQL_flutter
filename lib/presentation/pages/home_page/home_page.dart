@@ -27,14 +27,31 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           }
 
-          return ListView.builder(
-            itemCount:
-                controller.allFilmsList.value.data?.allFilms!.films!.length,
-            itemBuilder: (context, index) {
-              final film =
-                  controller.allFilmsList.value.data?.allFilms!.films![index];
-              return ListTile(title: Text(film?.title ?? 'title default'));
-            },
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: ListView.builder(
+              itemCount:
+                  controller.allFilmsList.value.data?.allFilms!.films!.length,
+              itemBuilder: (context, index) {
+                final film =
+                    controller.allFilmsList.value.data?.allFilms!.films![index];
+                return Card(
+                  child: ListTile(
+                    title: Text(film?.title ?? 'title default'),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(film?.director ?? 'director'),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text("Release Date : ${film?.releaseDate}")
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
           );
         }));
   }
