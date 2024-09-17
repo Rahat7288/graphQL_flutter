@@ -28,13 +28,9 @@ class _MyHomePageState extends State<MyHomePage> {
           }
 
           return ListView.builder(
-            itemCount:
-                controller.allFilmsList.value.data?.allFilms!.films!.length,
+            itemCount: 5,
             itemBuilder: (context, index) {
-              return ListTile(
-                  title: Text(controller.allFilmsList.value.data?.allFilms!
-                          .films![index].title ??
-                      'title default'));
+              return ListTile(title: Text('title default'));
             },
           );
         }));

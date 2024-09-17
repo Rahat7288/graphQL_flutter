@@ -13,20 +13,32 @@ class GraphqlService {
   final String _url = AppUrls.baseUrl;
 
   /// for query through graphql============
-  Future<Map<String, dynamic>> query(String query,
-      {Map<String, dynamic>? variables}) async {
-    final data = {
+  Future<dynamic> query(var query, {Map<String, dynamic>? variables}) async {
+    var data = {
       'query': query,
       'variables': variables ?? {},
     };
+    var headers = {
+      'Content-Type': 'application/json',
+    };
     try {
-      final response = await _dio.post(
-        _url,
-        data: data,
-      );
+      final response = await _dio.post(_url,
+          data: data,
+          options: Options(
+            headers: headers,
+          ));
+
+      // var response = await Dio.request(
+      //   _url,
+      //   options: Options(
+      //     method: 'POST',
+      //     headers: headers,
+      //   ),
+      //   data: data,
+      // );
 
       if (response.statusCode == 200) {
-        return response.data['data'] as Map<String, dynamic>;
+        return response.data;
       } else {
         throw Exception('Failed to load data');
       }
@@ -50,7 +62,7 @@ class GraphqlService {
       );
 
       if (response.statusCode == 200) {
-        return response.data['data'] as Map<String, dynamic>;
+        return response.data;
       } else {
         throw Exception('Failed to mutate data');
       }

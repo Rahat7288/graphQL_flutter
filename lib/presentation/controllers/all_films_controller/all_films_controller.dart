@@ -24,14 +24,16 @@ class AllFilmsController extends GetxController {
     super.onInit();
   }
 
-  void fetchAllFilms() async {
+  void fetchAllFilms() {
     loading.value = true;
     try {
-      await _allFilmsUsecases.call().then((val) {
+      _allFilmsUsecases.call().then((val) {
         if (kDebugMode) {
-          print('getting user value========= ${val.data?.allFilms?.films}');
+          print(
+              'getting user value========= ${val.data?.allFilms?.films?.first.title}');
         }
-        allFilmsList.value = val;
+        // allFilmsList.value = val;
+        // print('all films ${allFilmsList.value.data?.allFilms}');
       });
     } catch (e) {
       Get.snackbar('Error', e.toString());
