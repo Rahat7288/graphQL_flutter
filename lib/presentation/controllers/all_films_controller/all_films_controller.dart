@@ -32,7 +32,7 @@ class AllFilmsController extends GetxController {
           print(
               'getting user value========= ${val.data?.allFilms?.films?.first.title}');
         }
-        // allFilmsList.value = val;
+        allFilmsList.value = val;
         // print('all films ${allFilmsList.value.data?.allFilms}');
       });
     } catch (e) {
